@@ -1000,6 +1000,19 @@ services:
         - frontend
         - backend
 
+    adminerdg:
+      build:
+        context: ./adminerdg
+        args:
+          - ADMINER_DG_VERION=1.28.2
+      ports:
+        - "8081:8080"
+      depends_on:
+        - php-fpm
+      networks:
+        - frontend
+        - backend
+
 ### pgAdmin ##############################################
     pgadmin:
       image: dpage/pgadmin4:latest
